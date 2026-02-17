@@ -12,6 +12,11 @@ if not exist "node_modules\" (
     echo [1/2] Files already installed. Skipping...
 )
 
+if not exist "dist\" (
+    echo Building the website...
+    call npm run build
+)
+
 echo.
 echo [2/2] Launching Server...
 echo.

@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', sans-serif;
+  --color-bg-dark: #0A0A0A;
+  --color-platinum: #E0E0E0;
+  --color-violet-muted: #4B0082;
+  --color-glass-border: rgba(255, 255, 255, 0.08);
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-bg-dark text-platinum font-sans antialiased min-h-screen w-full selection:bg-violet-500/30 overflow-x-hidden;
+}
+
+/* Custom Utilities for Glassmorphism */
+@utility glass-panel {
+  @apply bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl;
+}
+
+@utility glow-text {
+  text-shadow: 0 0 30px rgba(139, 92, 246, 0.3);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-[#0A0A0A];
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-white/10 rounded-full hover:bg-violet-500/50 transition-colors border-2 border-[#0A0A0A];
+}
+
+@keyframes shine {
+  0% {
+    left: -100%;
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    left: 200%;
+    opacity: 0;
+  }
+}
+
+.animate-shine {
+  animation: shine 1.5s ease-in-out infinite;
+}
